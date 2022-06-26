@@ -845,11 +845,11 @@ PlayerSettings:
     m_VersionName: 
   apiCompatibilityLevel: 6
   activeInputHandler: 0
-  cloudProjectId: 
+  cloudProjectId: 53bd810f-50e2-4c81-bdae-5a69cfaa7e04
   framebufferDepthMemorylessMode: 0
   qualitySettingsNames: []
-  projectName: 
-  organizationId: 
+  projectName: Jumping to Asgard
+  organizationId: lucashermesfrantz7
   cloudEnabled: 0
   legacyClampBlendShapeWeights: 0
   playerDataPath: 
