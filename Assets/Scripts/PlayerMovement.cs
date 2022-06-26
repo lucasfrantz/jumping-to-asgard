@@ -29,7 +29,7 @@ public class PlayerMovement : MonoBehaviour
 
         if (jumpValue == 0.0f && isGrounded)
         {
-            rb.velocity = new Vector2(moveInput * walkSpeed, rb.velocity.y);
+            // rb.velocity = new Vector2(moveInput * walkSpeed, rb.velocity.y);
 
             //Flip player when moving left-right
             if( moveInput > 0.01f ){
@@ -57,7 +57,7 @@ public class PlayerMovement : MonoBehaviour
 
         if(Input.GetKey("space") && isGrounded && canJump)
         {
-            jumpValue += 0.1f;
+            jumpValue += 0.05f;
         }
 
         if(Input.GetKeyDown("space") && isGrounded && canJump)
@@ -65,10 +65,10 @@ public class PlayerMovement : MonoBehaviour
             rb.velocity = new Vector2(0.0f, rb.velocity.y);
         }
 
-        if(jumpValue >= 20f && isGrounded)
+        if(jumpValue >= 30f && isGrounded)
         {
             float tempx = moveInput * walkSpeed;
-            float tempy = jumpValue;
+            float tempy = jumpValue * 0.8f;
             rb.velocity = new Vector2(tempx, tempy);
             Invoke("ResetJump", 0.2f);
         }
@@ -77,7 +77,7 @@ public class PlayerMovement : MonoBehaviour
         {
             if(isGrounded)
             {
-                rb.velocity = new Vector2(moveInput * walkSpeed, jumpValue);
+                rb.velocity = new Vector2(moveInput * walkSpeed, jumpValue * 0.8f);
                 jumpValue = 0.0f;
             }
             canJump = true;
