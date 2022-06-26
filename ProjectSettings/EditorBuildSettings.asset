@@ -6,6 +6,15 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
+    path: Assets/Levels/0 Menu.unity
+    guid: 10cebb36c1e15fa4bb4f7a62cf963195
+  - enabled: 1
+    path: Assets/Levels/0.1 OptionsMenu.unity
+    guid: d97b3854b60579146b773f117da3f356
+  - enabled: 1
+    path: Assets/Levels/1 Niflheim.unity
+    guid: 161a18e4156ec234ea2ca20d735e13c9
+  - enabled: 1
     path: Assets/Levels/2 Svartalfheim.unity
     guid: d050913c2056bc845979a52e15b6c4e6
   m_configObjects: {}
