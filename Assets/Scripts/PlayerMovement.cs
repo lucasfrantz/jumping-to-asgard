@@ -8,6 +8,8 @@ public class PlayerMovement : MonoBehaviour
     private float moveInput;
     public bool isGrounded;
     private Rigidbody2D rb;
+    private Animator anim;
+
     public LayerMask groundMask;
 
     public PhysicsMaterial2D bounceMat, normalMat;
@@ -18,6 +20,7 @@ public class PlayerMovement : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        anim = gameObject.GetComponent<Animator>();
     }
 
     void Update()
@@ -27,10 +30,21 @@ public class PlayerMovement : MonoBehaviour
         if (jumpValue == 0.0f && isGrounded)
         {
             rb.velocity = new Vector2(moveInput * walkSpeed, rb.velocity.y);
+
+            //Flip player when moving left-right
+            if( moveInput > 0.01f ){
+                gameObject.transform.localScale = new Vector3(5,5,5);
+            }
+            else if( moveInput < -0.01f){
+                gameObject.transform.localScale = new Vector3(-5,5,5);
+            }
+            anim.SetBool("run", moveInput != 0);
         }
 
-        isGrounded = Physics2D.OverlapBox(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.5f),
-        new Vector2(0.9f, 0.4f), 0f, groundMask);
+        isGrounded = Physics2D.OverlapBox(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 2f),
+        new Vector2(2f, 0.4f), 0f, groundMask);
+
+        anim.SetBool("grounded", isGrounded);
 
         if(jumpValue > 0)
         {
@@ -68,6 +82,8 @@ public class PlayerMovement : MonoBehaviour
             }
             canJump = true;
         }
+
+        anim.SetBool("isChargingJump", jumpValue > 0);
     }
 
     void ResetJump()
