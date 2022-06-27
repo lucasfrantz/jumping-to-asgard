@@ -1974,7 +1974,7 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      platformertiles_66: 342036735
+      platformertiles_17: -705309056
       platformertiles_79: 364356059
       platformertiles_78: 2009292558
       platformertiles_7: 1593916116
@@ -2014,8 +2014,8 @@ TextureImporter:
       platformertiles_21: 1990900090
       platformertiles_70: -927956789
       platformertiles_8: -1311443909
-      platformertiles_64: 9374389
       platformertiles_28: 2135817512
+      platformertiles_64: 9374389
       platformertiles_58: -1586002296
       platformertiles_41: 991465645
       platformertiles_15: 1355811452
@@ -2059,9 +2059,9 @@ TextureImporter:
       platformertiles_33: -1752277796
       platformertiles_23: 1259194059
       platformertiles_22: -413663686
-      platformertiles_46: -1767099611
       platformertiles_0: 342984470
-      platformertiles_17: -705309056
+      platformertiles_46: -1767099611
+      platformertiles_66: 342036735
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

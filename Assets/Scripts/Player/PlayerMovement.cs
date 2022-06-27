@@ -15,10 +15,13 @@ public class PlayerMovement : MonoBehaviour
     public PhysicsMaterial2D bounceMat, normalMat;
     public bool canJump = true;
     public float jumpValue = 0.0f;
+
+    private GameObject[] players;
     
 
     void Start()
     {
+        DontDestroyOnLoad(gameObject);
         rb = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
     }
@@ -96,5 +99,22 @@ public class PlayerMovement : MonoBehaviour
     {
         Gizmos.color = Color.green;
         Gizmos.DrawCube(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.5f), new Vector2(0.9f, 0.2f));
+    }
+
+    private void OnLevelWasLoaded(int level)
+    {
+        FindStartPos();
+
+        players = GameObject.FindGameObjectsWithTag("Player");
+
+        if (players.Length > 1)
+        {
+            Destroy(players[1]);
+        }
+    }
+
+    void FindStartPos()
+    {
+        transform.position = GameObject.FindWithTag("StartPos").transform.position;
     }
 }
