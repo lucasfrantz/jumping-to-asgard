@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -14,14 +15,11 @@ public class PlayerMovement : MonoBehaviour
 
     public PhysicsMaterial2D bounceMat, normalMat;
     public bool canJump = true;
-    public float jumpValue = 0.0f;
-
-    private GameObject[] players;
-    
+    // public float jumpValue = 0.0f;
+    private long startCharge = -1;
 
     void Start()
     {
-        DontDestroyOnLoad(this.gameObject);
         rb = gameObject.GetComponent<Rigidbody2D>();
         anim = gameObject.GetComponent<Animator>();
     }
@@ -29,8 +27,8 @@ public class PlayerMovement : MonoBehaviour
     void Update()
     {
         moveInput = Input.GetAxisRaw("Horizontal");
-
-        if (jumpValue == 0.0f && isGrounded)
+        long milliseconds = DateTimeOffset.Now.ToUnixTimeMilliseconds();
+        if (startCharge == -1 && isGrounded)
         {
             // rb.velocity = new Vector2(moveInput * walkSpeed, rb.velocity.y);
 
@@ -49,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
         anim.SetBool("grounded", isGrounded);
 
-        if(jumpValue > 0)
+        if(startCharge >= 0)
         {
             rb.sharedMaterial = bounceMat;
         }
@@ -58,63 +56,50 @@ public class PlayerMovement : MonoBehaviour
             rb.sharedMaterial = normalMat;
         }
 
-        if(Input.GetKey("space") && isGrounded && canJump)
-        {
-            jumpValue += 0.05f;
-        }
+        // if(Input.GetKey("space") && isGrounded && canJump)
+        // {
+        //     jumpValue += 0.05f;
+        // }
 
         if(Input.GetKeyDown("space") && isGrounded && canJump)
         {
             rb.velocity = new Vector2(0.0f, rb.velocity.y);
+            startCharge = milliseconds;
         }
 
-        if(jumpValue >= 30f && isGrounded)
+        if(startCharge >= 0 && milliseconds - startCharge > 3000 && isGrounded)
         {
             float tempx = moveInput * walkSpeed;
-            float tempy = jumpValue * 0.8f;
+            float tempy = (milliseconds - startCharge)/3000f * 30f;
             rb.velocity = new Vector2(tempx, tempy);
             Invoke("ResetJump", 0.2f);
         }
 
         if(Input.GetKeyUp("space"))
         {
+            
             if(isGrounded)
             {
-                rb.velocity = new Vector2(moveInput * walkSpeed, jumpValue * 0.8f);
+                float jumpValue = (milliseconds - startCharge)/3000f * 30f;
+                rb.velocity = new Vector2(moveInput * walkSpeed, jumpValue);
                 jumpValue = 0.0f;
+                startCharge = -1;
             }
             canJump = true;
         }
 
-        anim.SetBool("isChargingJump", jumpValue > 0);
+        anim.SetBool("isChargingJump", startCharge >= 0);
     }
 
     void ResetJump()
     {
         canJump = false;
-        jumpValue = 0;
+        startCharge = -1;
     }
 
     void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.green;
         Gizmos.DrawCube(new Vector2(gameObject.transform.position.x, gameObject.transform.position.y - 0.5f), new Vector2(0.9f, 0.2f));
-    }
-
-    private void OnLevelWasLoaded(int level)
-    {
-        FindStartPos();
-
-        players = GameObject.FindGameObjectsWithTag("Player");
-
-        if (players.Length > 1)
-        {
-            Destroy(players[1]);
-        }
-    }
-
-    void FindStartPos()
-    {
-        transform.position = GameObject.FindWithTag("StartPos").transform.position;
     }
 }
