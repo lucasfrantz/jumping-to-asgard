@@ -61,7 +61,7 @@ public class PlayerMovement : MonoBehaviour
         //     jumpValue += 0.05f;
         // }
 
-        if(Input.GetKeyDown("space") && isGrounded && canJump)
+        if(Input.GetKeyDown("space") && isGrounded && canJump && startCharge == -1)
         {
             rb.velocity = new Vector2(0.0f, rb.velocity.y);
             startCharge = milliseconds;
@@ -78,7 +78,7 @@ public class PlayerMovement : MonoBehaviour
         if(Input.GetKeyUp("space"))
         {
             
-            if(isGrounded)
+            if(isGrounded && startCharge >= 0)
             {
                 float jumpValue = (milliseconds - startCharge)/3000f * 30f;
                 rb.velocity = new Vector2(moveInput * walkSpeed, jumpValue);
