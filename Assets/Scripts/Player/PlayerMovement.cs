@@ -18,6 +18,8 @@ public class PlayerMovement : MonoBehaviour
     // public float jumpValue = 0.0f;
     private long startCharge = -1;
 
+    public float initialPercentage = 0.4f;
+
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -67,10 +69,11 @@ public class PlayerMovement : MonoBehaviour
             startCharge = milliseconds;
         }
 
-        if(startCharge >= 0 && milliseconds - startCharge > 3000 && isGrounded)
+        if(startCharge >= 0 && milliseconds - startCharge > 2000f && isGrounded)
         {
+            float percentage = initialPercentage + (((milliseconds - startCharge) / 2000.0f - 0f) * (1f-initialPercentage))/(1.0f - initialPercentage);
             float tempx = moveInput * walkSpeed;
-            float tempy = (milliseconds - startCharge)/3000f * 30f;
+            float tempy = (percentage< 0.4f ? 0.4f : percentage) * 15f;
             rb.velocity = new Vector2(tempx, tempy);
             Invoke("ResetJump", 0.2f);
         }
@@ -80,7 +83,8 @@ public class PlayerMovement : MonoBehaviour
             
             if(isGrounded && startCharge >= 0)
             {
-                float jumpValue = (milliseconds - startCharge)/3000f * 30f;
+                float percentage = initialPercentage + (((milliseconds - startCharge) / 2000.0f - 0f) * (1f-initialPercentage))/(1.0f - initialPercentage);
+                float jumpValue = (percentage< 0.4f ? 0.4f : percentage) * 15f;
                 rb.velocity = new Vector2(moveInput * walkSpeed, jumpValue);
                 jumpValue = 0.0f;
                 startCharge = -1;
