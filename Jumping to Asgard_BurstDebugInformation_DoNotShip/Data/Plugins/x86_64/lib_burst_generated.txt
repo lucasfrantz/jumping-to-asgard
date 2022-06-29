@@ -139,6 +139,7 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\Gabriel\jumping-to-asgard\Temp\StagingArea\Data\Managed\Unity.2D.Animation.Runtime.dll
 --root-assembly=C:\Users\Gabriel\jumping-to-asgard\Temp\StagingArea\Data\Managed\Unity.TextMeshPro.dll
 --root-assembly=C:\Users\Gabriel\jumping-to-asgard\Temp\StagingArea\Data\Managed\Unity.Timeline.dll
+--root-assembly=C:\Users\Gabriel\jumping-to-asgard\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\Gabriel\jumping-to-asgard\Temp\StagingArea\Data\Managed\Unity.Services.Core.Environments.dll
 --root-assembly=C:\Users\Gabriel\jumping-to-asgard\Temp\StagingArea\Data\Managed\Unity.Services.Core.Internal.dll
 --root-assembly=C:\Users\Gabriel\jumping-to-asgard\Temp\StagingArea\Data\Managed\Unity.Services.Core.Analytics.dll
@@ -154,7 +155,6 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\Gabriel\jumping-to-asgard\Temp\StagingArea\Data\Managed\Unity.Services.Core.Networking.dll
 --root-assembly=C:\Users\Gabriel\jumping-to-asgard\Temp\StagingArea\Data\Managed\Unity.Services.Core.dll
 --root-assembly=C:\Users\Gabriel\jumping-to-asgard\Temp\StagingArea\Data\Managed\Unity.InternalAPIEngineBridge.001.dll
---root-assembly=C:\Users\Gabriel\jumping-to-asgard\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\Gabriel\jumping-to-asgard\Temp\StagingArea\Data\Managed\Unity.Services.Core.Configuration.dll
 --assembly-folder=C:\Users\Gabriel\jumping-to-asgard\Temp\StagingArea\Data\Managed\
 --pdb-search-paths=Temp/ManagedSymbols/
@@ -302,6 +302,7 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\Gabriel\jumping-to-asgard\Temp\StagingArea\Data\Managed\Unity.2D.Animation.Runtime.dll
 --root-assembly=C:\Users\Gabriel\jumping-to-asgard\Temp\StagingArea\Data\Managed\Unity.TextMeshPro.dll
 --root-assembly=C:\Users\Gabriel\jumping-to-asgard\Temp\StagingArea\Data\Managed\Unity.Timeline.dll
+--root-assembly=C:\Users\Gabriel\jumping-to-asgard\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\Gabriel\jumping-to-asgard\Temp\StagingArea\Data\Managed\Unity.Services.Core.Environments.dll
 --root-assembly=C:\Users\Gabriel\jumping-to-asgard\Temp\StagingArea\Data\Managed\Unity.Services.Core.Internal.dll
 --root-assembly=C:\Users\Gabriel\jumping-to-asgard\Temp\StagingArea\Data\Managed\Unity.Services.Core.Analytics.dll
@@ -317,7 +318,6 @@ Library: lib_burst_generated
 --root-assembly=C:\Users\Gabriel\jumping-to-asgard\Temp\StagingArea\Data\Managed\Unity.Services.Core.Networking.dll
 --root-assembly=C:\Users\Gabriel\jumping-to-asgard\Temp\StagingArea\Data\Managed\Unity.Services.Core.dll
 --root-assembly=C:\Users\Gabriel\jumping-to-asgard\Temp\StagingArea\Data\Managed\Unity.InternalAPIEngineBridge.001.dll
---root-assembly=C:\Users\Gabriel\jumping-to-asgard\Temp\StagingArea\Data\Managed\Assembly-CSharp.dll
 --root-assembly=C:\Users\Gabriel\jumping-to-asgard\Temp\StagingArea\Data\Managed\Unity.Services.Core.Configuration.dll
 --assembly-folder=C:\Users\Gabriel\jumping-to-asgard\Temp\StagingArea\Data\Managed\
 --pdb-search-paths=Temp/ManagedSymbols/
