@@ -20,4 +20,10 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/Muspelheim.unity
     guid: ed276af23adb98d478bf32a4192e2418
+  - enabled: 1
+    path: Assets/Levels/Nidavelir.unity
+    guid: aa888d277b84ab04a9387131845b7560
+  - enabled: 1
+    path: Assets/Levels/Midgard.unity
+    guid: 3aa2733fd9cd15142b7db6c8abd3310f
   m_configObjects: {}
