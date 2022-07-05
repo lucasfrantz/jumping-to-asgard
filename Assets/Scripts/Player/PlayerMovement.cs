@@ -84,7 +84,7 @@ public class PlayerMovement : MonoBehaviour
             if(isGrounded && startCharge >= 0)
             {
                 float percentage = initialPercentage + (((milliseconds - startCharge) / 2000.0f - 0f) * (1f-initialPercentage))/(1.0f - initialPercentage);
-                float jumpValue = (percentage< 0.4f ? 0.4f : percentage) * 15f;
+                float jumpValue = (percentage< 0.4f ? 0.4f : percentage) * 20f;
                 rb.velocity = new Vector2(moveInput * walkSpeed, jumpValue);
                 jumpValue = 0.0f;
                 startCharge = -1;
