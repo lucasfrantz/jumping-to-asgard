@@ -6,6 +6,7 @@ public class Health : MonoBehaviour
     [Header ("Health")]
     [SerializeField] private float startingHealth;
     public float currentHealth { get; private set; }
+    public GameObject gameOverScreen;
     private Animator anim;
     private bool dead;
 
@@ -13,12 +14,14 @@ public class Health : MonoBehaviour
     [SerializeField] private float iFramesDuration;
     [SerializeField] private int numberOfFlashes;
     private SpriteRenderer spriteRend;
+    
 
     private void Awake()
     {
         currentHealth = startingHealth;
         anim = GetComponent<Animator>();
         spriteRend = GetComponent<SpriteRenderer>();
+        gameOverScreen.SetActive(false);
     }
 
     public void TakeDamage(float _damage)
@@ -36,6 +39,7 @@ public class Health : MonoBehaviour
             {
                 // anim.SetTrigger("die");
                 GetComponent<PlayerMovement>().enabled = false;
+                gameOverScreen.SetActive( true );
             }
         }
     }
