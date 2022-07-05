@@ -39,7 +39,8 @@ public class Health : MonoBehaviour
             {
                 // anim.SetTrigger("die");
                 GetComponent<PlayerMovement>().enabled = false;
-                gameOverScreen.SetActive( true );
+                Time.timeScale = 0f;
+                gameOverScreen.SetActive(true);
             }
         }
     }

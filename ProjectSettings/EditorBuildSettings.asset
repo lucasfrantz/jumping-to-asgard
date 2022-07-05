@@ -26,4 +26,16 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Levels/Midgard.unity
     guid: 3aa2733fd9cd15142b7db6c8abd3310f
+  - enabled: 1
+    path: Assets/Levels/Alfheim.unity
+    guid: 20ab8f1e11554f8408e3d70f4080a5c2
+  - enabled: 1
+    path: Assets/Levels/Jotunheim.unity
+    guid: 6741e1da672478945bdf26acabf24a32
+  - enabled: 1
+    path: Assets/Levels/Vanaheim.unity
+    guid: 00b87892e86fa774eb328d871bd17029
+  - enabled: 1
+    path: Assets/Levels/Asgard.unity
+    guid: 68fb8f0e91e6ec446950d7c8304f771f
   m_configObjects: {}
